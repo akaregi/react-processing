@@ -53,7 +53,7 @@ const App = () => {
       <Canvas sketch={mouseCircle} />
 
       <footer>
-        <p>(C) 2022 nanigashi. CC BY-SA 4.0</p>
+        <p>(C) 2022 nanigashi. Apache-2.0 and CC BY-SA 4.0. <a href="https://github.com/akaregi/react-processing">GitHub</a></p>
       </footer>
     </>
   );
