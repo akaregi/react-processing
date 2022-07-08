@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig to read more about this file */
+    /* Projects */
+    "incremental": true,
+    /* Language and Environment */
+    "target": "ES2015",
+    "lib": [
+      "DOM",
+      "ESNext",
+      "ScriptHost"
+    ],
+    "jsx": "react-jsx",
+    "experimentalDecorators": true,
+    /* Modules */
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "~/*": [
+        "src/*"
+      ]
+    },
+    /* Interop Constraints */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    /* Type Checking */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    /* Completeness */
+    "skipLibCheck": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./@types"
+    ]
+  }
+}
