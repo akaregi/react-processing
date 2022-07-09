@@ -1,7 +1,8 @@
 import { createGlobalStyle } from "styled-components";
+import Canvas from "./canvas";
 import mouseCircle from "~/sketch/mouseCircle";
 import trochoid from "~/sketch/trochoid";
-import Canvas from "./canvas";
+import noiseGraph from "~/sketch/noiseGraph";
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -56,7 +57,10 @@ const App = () => {
       <Canvas sketch={noiseGraph} />
 
       <footer>
-        <p>(C) 2022 nanigashi. Apache-2.0 and CC BY-SA 4.0. <a href="https://github.com/akaregi/react-processing">GitHub</a></p>
+        <p>
+          (C) 2022 nanigashi. Apache-2.0 and CC BY-SA 4.0.{" "}
+          <a href="https://github.com/akaregi/react-processing">GitHub</a>
+        </p>
       </footer>
     </>
   );
