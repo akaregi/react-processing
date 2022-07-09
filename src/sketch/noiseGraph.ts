@@ -30,6 +30,7 @@ const noiseGraph = (p: p5) => {
     // reset the canvas
     p.background("#fff");
 
+    // background line
     p.stroke("#3f54ba55");
     p.line(0, 0, 500, 0);
     p.line(0, 100, 500, 100);
@@ -43,7 +44,7 @@ const noiseGraph = (p: p5) => {
     p.line(300, 0, 300, 500);
     p.line(400, 0, 400, 500);
 
-    // creates new random point
+    // creates a new point
     p.stroke("#3f54ba");
     p.strokeWeight(2);
 
@@ -56,16 +57,15 @@ const noiseGraph = (p: p5) => {
       y,
     });
 
+    // rendering
     points.map((point, index) => {
       point.x -= 1;
 
-      // if particle is invisible, remove it
       if (point.x <= 0) {
         points.splice(index, 1);
         return;
       }
 
-      // RENDERING PROCESS GO BRR
       const { x, y } = point;
 
       if (points.length === 1 || index === points.length - 1) {
@@ -74,6 +74,8 @@ const noiseGraph = (p: p5) => {
 
       // next point
       const { x: nX, y: nY } = points[index + 1];
+
+      // ...and render it.
       p.line(x, y, nX, nY);
     });
   };
