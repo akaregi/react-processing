@@ -52,6 +52,9 @@ const App = () => {
       <h2>Mouse circle</h2>
       <Canvas sketch={mouseCircle} />
 
+      <h2>Noise Graph</h2>
+      <Canvas sketch={noiseGraph} />
+
       <footer>
         <p>(C) 2022 nanigashi. Apache-2.0 and CC BY-SA 4.0. <a href="https://github.com/akaregi/react-processing">GitHub</a></p>
       </footer>
