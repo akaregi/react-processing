@@ -3,7 +3,7 @@ import p5 from "p5";
 const width = 500;
 
 /**
- * Represents the particle.
+ * Represents the point.
  */
 type Point = {
   x: number;
