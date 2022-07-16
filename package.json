@@ -5,6 +5,7 @@
   "author": "akarregi <no-reply@azure.icu> (https://www.azure.icu/)",
   "license": "MIT",
   "dependencies": {
+    "dayjs": "^1.11.3",
     "just-random": "^3.0.1",
     "just-range": "^4.0.1",
     "nanoid": "^4.0.0",
