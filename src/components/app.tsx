@@ -4,6 +4,7 @@ import mouseCircle from "~/sketch/mouseCircle";
 import trochoid from "~/sketch/trochoid";
 import noiseGraph from "~/sketch/noiseGraph";
 import lineCircle from "~/sketch/lineCircle";
+import circleCycle from "~/sketch/circleCycle";
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -63,12 +64,16 @@ const App = () => {
 
       <h2>Circle Cycle</h2>
       <p>
+        注意:
+        Enterで画像を無限に吸えるものの、乱数生成が悪いのかF5しないと似たような画像が生成されます。趣向を変えたい場合F5してください。変えたくない場合はF5を押さないでください。
+      </p>
+      <p>
         ref:&nbsp;
         <a href="https://note.com/deconbatch/n/nc14219bfacc6">
           周期的パーリンノイズ
         </a>
       </p>
-      <p>(TBA)</p>
+      <Canvas sketch={circleCycle} />
 
       <footer>
         <p>
