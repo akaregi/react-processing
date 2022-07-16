@@ -6,13 +6,13 @@
   "license": "MIT",
   "dependencies": {
     "just-random": "^3.0.1",
+    "just-range": "^4.0.1",
     "nanoid": "^4.0.0",
     "p5": "^1.4.1",
     "parcel-bundler": "^1.12.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
-    "src": "^1.1.2",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
