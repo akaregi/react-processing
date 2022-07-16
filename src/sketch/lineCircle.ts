@@ -15,7 +15,8 @@ const lineCircle = (p: p5) => {
     p.background("#fff");
 
     // text
-    p.strokeWeight(1);
+    p.noStroke();
+
     p.fill("#1363DF");
     p.textSize(24);
     p.text("nanigashi: Line Circle ", 30, 40);
