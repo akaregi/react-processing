@@ -3,6 +3,7 @@ import Canvas from "./canvas";
 import mouseCircle from "~/sketch/mouseCircle";
 import trochoid from "~/sketch/trochoid";
 import noiseGraph from "~/sketch/noiseGraph";
+import lineCircle from "~/sketch/lineCircle";
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -55,6 +56,9 @@ const App = () => {
 
       <h2>Noise Graph</h2>
       <Canvas sketch={noiseGraph} />
+
+      <h2>Line Circle</h2>
+      <Canvas sketch={lineCircle} />
 
       <footer>
         <p>
