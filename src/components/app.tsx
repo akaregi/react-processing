@@ -58,7 +58,17 @@ const App = () => {
       <Canvas sketch={noiseGraph} />
 
       <h2>Line Circle</h2>
+      <p>Enter to redraw</p>
       <Canvas sketch={lineCircle} />
+
+      <h2>Circle Cycle</h2>
+      <p>
+        ref:&nbsp;
+        <a href="https://note.com/deconbatch/n/nc14219bfacc6">
+          周期的パーリンノイズ
+        </a>
+      </p>
+      <p>(TBA)</p>
 
       <footer>
         <p>
