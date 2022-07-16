@@ -16,7 +16,6 @@ const Canvas = (props: Props) => {
   return (
     <>
       <section id={id} />
-      <hr />
     </>
   );
 };
