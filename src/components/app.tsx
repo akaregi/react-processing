@@ -110,9 +110,9 @@ const App = () => {
           周期的パーリンノイズ
         </a>
       </p>
-      <Canvas sketch={circleCycle} />
       <details>
         <summary>大きいので格納</summary>
+        <Canvas sketch={circleCycle} />
       </details>
       <footer>
         <p>
