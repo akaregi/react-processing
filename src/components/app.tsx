@@ -5,6 +5,7 @@ import trochoid from "~/sketch/trochoid";
 import noiseGraph from "~/sketch/noiseGraph";
 import lineCircle from "~/sketch/lineCircle";
 import circleCycle from "~/sketch/circleCycle";
+import barcode from "~/sketch/barcode";
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -114,6 +115,13 @@ const App = () => {
         <summary>大きいので格納</summary>
         <Canvas sketch={circleCycle} />
       </details>
+
+      <h2>Barcode</h2>
+      <p>
+        バーコード的な何か。Enterで再生成できます。4値の200桁なので結構な組み合わせになるが、実用性はまるでないと思う。この世のバーコードは思った以上によくできている。
+      </p>
+      <Canvas sketch={barcode} />
+
       <footer>
         <p>
           (C) 2022 nanigashi. Apache-2.0 and CC BY-SA 4.0.{" "}
