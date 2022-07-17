@@ -55,7 +55,7 @@ const lineCircle = (p: p5) => {
 
   p.keyTyped = () => {
     if (p.keyCode === p.ENTER) {
-      console.log("lineCircle: redraw()");
+      console.debug("lineCircle: redraw()");
 
       p.redraw();
     }

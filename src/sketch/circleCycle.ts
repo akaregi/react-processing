@@ -74,7 +74,7 @@ const circleCycle = (p: p5) => {
 
   p.keyTyped = () => {
     if (p.keyCode === p.ENTER) {
-      console.log("circleCycle: redraw()");
+      console.debug("circleCycle: redraw()");
 
       p.redraw();
     }
