@@ -2,6 +2,7 @@ import p5 from "p5";
 import dayjs from "dayjs";
 import random from "just-random";
 import range from "just-range";
+import { keyRedraw } from "~/util/p5util";
 
 const barcode = (p: p5) => {
   const width = 1000;
@@ -62,13 +63,7 @@ const barcode = (p: p5) => {
     p.text(vals.slice(100, 200).join(""), 40, 170);
   };
 
-  p.keyTyped = () => {
-    if (p.keyCode === p.ENTER) {
-      console.debug("streaming: redraw()");
-
-      p.redraw();
-    }
-  };
+  p.keyTyped = () => keyRedraw(p, "z", "barcode");
 };
 
 export default barcode;
