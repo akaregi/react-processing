@@ -6,6 +6,7 @@ import lineCircle from "~/sketch/lineCircle";
 import circleCycle from "~/sketch/circleCycle";
 import barcode from "~/sketch/barcode";
 import { Link } from "react-router-dom";
+import circleCycleV2 from "~/sketch/circleCycleV2";
 
 const App = () => {
   return (
@@ -47,6 +48,7 @@ const App = () => {
         <summary>大きいので格納</summary>
         <Canvas sketch={lineCircle} />
       </details>
+
       <h2>Circle Cycle</h2>
       <p>
         周期性のあるパーリンノイズというのを扱いたくて設計したものです。まず、普通のパーリンノイズは当然ながら特定地点で同じ数列が繰り返されるということはないんですよ。何が問題かって、
@@ -66,6 +68,20 @@ const App = () => {
       <details>
         <summary>大きいので格納</summary>
         <Canvas sketch={circleCycle} />
+      </details>
+
+      <h2>Circle Cycle 改善</h2>
+      <p>
+        <i>Circle Cycle</i>
+        の改善バージョン。乱数の謎を完全に理解し、そして完全な美しさだけを出力する可能性が高まった決定版です。お楽しみください！
+      </p>
+      <p>
+        <kbd>Enter</kbd>
+        でいくらでも再生成できるので好みのそれが見つかるまでがんばってください。色は……どうしてもっていうならソースコードをいじってください。
+      </p>
+      <details>
+        <summary>大きいので格納</summary>
+        <Canvas sketch={circleCycleV2} />
       </details>
 
       <h2>Barcode</h2>
