@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 body {
-  max-width: 768px;
+  max-width: 1000px;
 
   margin: 0 auto;
   padding: 0 1rem;
@@ -10,6 +10,8 @@ body {
   font-size: 20px;
   font-family: sans-serif;
   color: #333;
+  
+  background-color: #fcfcfc;
 }
 
 header, footer {
@@ -17,21 +19,23 @@ header, footer {
 }
 
 h2 {
-  margin-top: 2rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid #ccc;
+  margin-top: 4rem;
+
+  font-size: 2.5rem;
 }
 
 section {
   display: flex;
   justify-content: center;
+
+  margin: 1rem 0;
 }
 
 p, ul {
-  margin: 0.5rem;
+  margin: 0.5rem 0;
 }
 
 canvas.p5Canvas {
-  border: 1px solid #30b8cd;
+  border: 1px solid #ccc;
 }
 `;
