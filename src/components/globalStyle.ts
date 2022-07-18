@@ -38,4 +38,14 @@ p, ul {
 canvas.p5Canvas {
   border: 1px solid #ccc;
 }
+
+a {
+  color: #2b409b;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2b409b;
+  text-decoration: underline;
+}
 `;
