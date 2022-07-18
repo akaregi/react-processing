@@ -1,5 +1,4 @@
-import { createGlobalStyle } from "styled-components";
-import Canvas from "./canvas";
+import Canvas from "../components/canvas";
 import mouseCircle from "~/sketch/mouseCircle";
 import trochoid from "~/sketch/trochoid";
 import noiseGraph from "~/sketch/noiseGraph";
@@ -7,57 +6,9 @@ import lineCircle from "~/sketch/lineCircle";
 import circleCycle from "~/sketch/circleCycle";
 import barcode from "~/sketch/barcode";
 
-const GlobalStyle = createGlobalStyle`
-body {
-  max-width: 768px;
-
-  margin: 0 auto;
-  padding: 0 1rem;
-
-  font-size: 20px;
-  font-family: sans-serif;
-  color: #333;
-}
-
-header, footer {
-  margin: 3rem 0;
-}
-
-h2 {
-  margin-top: 2rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid #ccc;
-}
-
-section {
-  display: flex;
-  justify-content: center;
-}
-
-p {
-  margin: 0.5rem;
-  text-indent: 1rem;
-}
-
-canvas.p5Canvas {
-  border: 1px solid #30b8cd;
-}
-`;
-
 const App = () => {
   return (
     <>
-      <GlobalStyle />
-      <header>
-        <h1>Processing(p5.js) with React</h1>
-      </header>
-      <p>Hyperthink intensifies</p>
-      <p>
-        <strong>¡¡¡あんた超注意!!!</strong>&nbsp;
-        このサイトはスマホで遊ぶことをウンボのウの字ほどにも考えておらず、スマホで遊ぼうとするとあんたは
-        &nbsp;<i>INHALE INTENSIFIES</i>{" "}
-        効果を付与されてしまいます。パソコンないしパソコン相当の何某で遊んでみてください。
-      </p>
       <p>
         <strong>
           レンダリング面積が大きい作品は折りたたまれているので、適量展開してください。
@@ -122,12 +73,11 @@ const App = () => {
       </p>
       <Canvas sketch={barcode} />
 
-      <footer>
-        <p>
-          (C) 2022 nanigashi. Apache-2.0 and CC BY-SA 4.0.{" "}
-          <a href="https://github.com/akaregi/react-processing">GitHub</a>
-        </p>
-      </footer>
+      <h2>LifeGame</h2>
+      <p>
+        <a href="lifegame">まあまあ負荷がかかるので別ページに分離しています</a>
+        。
+      </p>
     </>
   );
 };
