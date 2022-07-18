@@ -1,12 +1,12 @@
+import { Link } from "react-router-dom";
 import Canvas from "../components/canvas";
 import mouseCircle from "~/sketch/mouseCircle";
 import trochoid from "~/sketch/trochoid";
 import noiseGraph from "~/sketch/noiseGraph";
 import lineCircle from "~/sketch/lineCircle";
 import circleCycle from "~/sketch/circleCycle";
-import barcode from "~/sketch/barcode";
-import { Link } from "react-router-dom";
 import circleCycleV2 from "~/sketch/circleCycleV2";
+import barcode from "~/sketch/barcode";
 
 const App = () => {
   return (
@@ -93,6 +93,14 @@ const App = () => {
       <h2>LifeGame</h2>
       <p>
         <Link to={"/lifegame"}>
+          まあまあ負荷がかかるので別ページに分離しています
+        </Link>
+        。
+      </p>
+
+      <h2>Lorenz</h2>
+      <p>
+        <Link to={"/lorenz"}>
           まあまあ負荷がかかるので別ページに分離しています
         </Link>
         。
