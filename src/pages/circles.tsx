@@ -17,10 +17,7 @@ const Circles = () => {
         なり<kbd>Enter</kbd>
         を押すと消えてしまい二度と蘇ることがありません。本当に押しますか？それを？
       </p>
-      <details>
-        <summary>大きいので格納</summary>
-        <Canvas sketch={lineCircle} />
-      </details>
+      <Canvas sketch={lineCircle} />
 
       <h2>Circle Cycle</h2>
       <p>
@@ -41,10 +38,7 @@ const Circles = () => {
           周期的パーリンノイズ
         </a>
       </p>
-      <details>
-        <summary>大きいので格納</summary>
-        <Canvas sketch={circleCycle} />
-      </details>
+      <Canvas sketch={circleCycle} />
 
       <h2>Circle Cycle 改善</h2>
       <p>
@@ -55,10 +49,7 @@ const Circles = () => {
         <kbd>C</kbd>
         でいくらでも再生成できるので好みのそれが見つかるまでがんばってください。色は……どうしてもっていうならソースコードをいじってください。
       </p>
-      <details>
-        <summary>大きいので格納</summary>
-        <Canvas sketch={circleCycleV2} />
-      </details>
+      <Canvas sketch={circleCycleV2} />
     </>
   );
 };
