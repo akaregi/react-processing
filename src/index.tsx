@@ -5,6 +5,7 @@ import { GlobalStyle } from "./components/globalStyle";
 import App from "./pages/mainpage";
 import LifeGame from "./pages/lifegame";
 import Lorenz from "./pages/lorenz";
+import Spheres from "./pages/spheres";
 
 const root = () => {
   return (
@@ -26,6 +27,7 @@ const root = () => {
           <Route path="/" element={<App />} />
           <Route path="lifegame" element={<LifeGame />} />
           <Route path="lorenz" element={<Lorenz />} />
+          <Route path="spheres" element={<Spheres />} />
         </Routes>
       </BrowserRouter>
 

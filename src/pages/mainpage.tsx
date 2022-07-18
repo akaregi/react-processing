@@ -7,6 +7,8 @@ import lineCircle from "~/sketch/lineCircle";
 import circleCycle from "~/sketch/circleCycle";
 import circleCycleV2 from "~/sketch/circleCycleV2";
 import barcode from "~/sketch/barcode";
+import meshSphere from "~/sketch/meshSphere";
+import meshSphere3D from "~/sketch/meshSphere3D";
 
 const App = () => {
   return (
@@ -100,10 +102,12 @@ const App = () => {
 
       <h2>Lorenz</h2>
       <p>
-        <Link to={"/lorenz"}>
-          まあまあ負荷がかかるので別ページに分離しています
-        </Link>
-        。
+        <Link to={"/lorenz"}>3Dなのでマジで重いんですよ、別ページです</Link>。
+      </p>
+
+      <h2>Spheres</h2>
+      <p>
+        <Link to={"/spheres"}>3Dなのでマジで重いんですよ、別ページです</Link>。
       </p>
     </>
   );
