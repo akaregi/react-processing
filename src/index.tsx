@@ -8,13 +8,42 @@ import Lorenz from "./pages/lorenz";
 import Spheres from "./pages/spheres";
 import Circles from "./pages/circles";
 
+const pages = [
+  {
+    path: "",
+    e: <App />,
+  },
+  {
+    path: "lifegame",
+    e: <LifeGame />,
+  },
+  {
+    path: "lorenz",
+    e: <Lorenz />,
+  },
+  {
+    path: "circles",
+    e: <Circles />,
+  },
+  {
+    path: "spheres",
+    e: <Spheres />,
+  },
+];
+
+const routes = pages.map((page) => (
+  <Route path={page.path} element={page.e} key={page.path} />
+));
+
 const root = () => {
   return (
     <>
       <GlobalStyle />
+
       <header>
         <h1>Processing(p5.js) with React</h1>
       </header>
+
       <p>Hyperthink intensifies</p>
       <p>
         <strong>¡¡¡あんた超注意!!!</strong>&nbsp;
@@ -23,15 +52,11 @@ const root = () => {
         効果を付与されてしまいます。パソコンないしパソコン相当の何某で遊んでみてください。
       </p>
 
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="lifegame" element={<LifeGame />} />
-          <Route path="lorenz" element={<Lorenz />} />
-          <Route path="spheres" element={<Spheres />} />
-          <Route path="circles" element={<Circles />} />
-        </Routes>
-      </BrowserRouter>
+      <main>
+        <BrowserRouter>
+          <Routes>{routes}</Routes>
+        </BrowserRouter>
+      </main>
 
       <footer>
         <p>
