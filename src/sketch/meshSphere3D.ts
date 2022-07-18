@@ -1,28 +1,16 @@
+import p5 from "p5";
 import random from "just-random";
 import range from "just-range";
-import p5 from "p5";
+import { Line3D, switchLoop } from "~/util/p5util";
 
 const DIMENSION = 1000;
 const ALIGN = 400;
 
 const R = 400;
 
-type Coordinate = {
-  x: number;
-  y: number;
-  z: number;
-};
-
-type Line = {
-  start: Coordinate;
-  end: Coordinate;
-  color: string;
-  life: number;
-};
-
 const meshSphere3D = (p: p5) => {
   const degrees = range(0, 360);
-  let lines: Line[] = [];
+  let lines: Required<Line3D>[] = [];
 
   // translation
   let rotation = 0.1;
@@ -37,15 +25,7 @@ const meshSphere3D = (p: p5) => {
   };
 
   p.keyTyped = () => {
-    if (p.key.toUpperCase() === "X") {
-      if (p.isLooping()) {
-        console.debug("meshSphere3D: STOP loop");
-        p.noLoop();
-      } else {
-        console.debug("meshSphere3D: BEGIN loop");
-        p.loop();
-      }
-    }
+    switchLoop(p, "Z", "meshSphere3D");
   };
 
   function render() {
@@ -57,7 +37,7 @@ const meshSphere3D = (p: p5) => {
     p.strokeWeight(2);
 
     lines = lines.filter((line) => {
-      p.stroke(`${line.color}${line.life.toString(16)}`);
+      p.stroke(`${line.color}${line.alpha.toString(16)}`);
 
       const start = line.start;
       const end = line.end;
@@ -65,10 +45,10 @@ const meshSphere3D = (p: p5) => {
       p.beginShape();
       p.vertex(start.x, start.y, start.z);
       p.vertex(end.x, end.y, end.z);
-
       p.endShape();
-      line.life--;
-      return line.life > 0;
+
+      line.alpha--;
+      return line.alpha > 0;
     });
 
     const rad = {
@@ -95,7 +75,7 @@ const meshSphere3D = (p: p5) => {
       },
 
       color: random(["#A5C9CA", "#CEE5D0"]),
-      life: 255,
+      alpha: 255,
     });
 
     p.fill("#A5C9CA11");

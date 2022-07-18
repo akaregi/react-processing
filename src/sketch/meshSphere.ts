@@ -1,26 +1,16 @@
+import p5 from "p5";
+
 import dayjs from "dayjs";
 import random from "just-random";
 import range from "just-range";
-import p5 from "p5";
+import { getCoordinate, Line, switchLoop, writeLine } from "~/util/p5util";
 
 const DIMENSION = 1000;
 const ALIGN = DIMENSION / 2;
 
-type Coordinate = {
-  x: number;
-  y: number;
-};
-
-type Line = {
-  start: Coordinate;
-  end: Coordinate;
-  color: string;
-  alpha: number;
-};
-
 const meshSphere = (p: p5) => {
   const degrees = range(0, 360);
-  let lines: Line[] = [];
+  let lines: Required<Line>[] = [];
 
   p.setup = () => {
     p.createCanvas(DIMENSION, DIMENSION);
@@ -32,15 +22,7 @@ const meshSphere = (p: p5) => {
   };
 
   p.keyTyped = () => {
-    if (p.key.toUpperCase() === "Z") {
-      if (p.isLooping()) {
-        console.debug("meshSphere: STOP loop");
-        p.noLoop();
-      } else {
-        console.debug("meshSphere: BEGIN loop");
-        p.loop();
-      }
-    }
+    switchLoop(p, "Z", "meshSphere");
   };
 
   function render() {
@@ -54,12 +36,7 @@ const meshSphere = (p: p5) => {
 
     lines = lines.filter((line) => {
       p.stroke(`${line.color}${line.alpha.toString(16)}`);
-      p.line(
-        line.start.x + ALIGN,
-        line.start.y + ALIGN,
-        line.end.x + ALIGN,
-        line.end.y + ALIGN
-      );
+      writeLine(p, line, ALIGN);
 
       line.alpha--;
 
@@ -70,8 +47,8 @@ const meshSphere = (p: p5) => {
     const eRad = p.radians(random(degrees)!);
 
     lines.push({
-      start: { x: 400 * Math.cos(sRad), y: 400 * Math.sin(sRad) },
-      end: { x: 400 * Math.cos(eRad), y: 400 * Math.sin(eRad) },
+      start: getCoordinate(sRad, 400),
+      end: getCoordinate(eRad, 400),
       color: "#D61C4E",
       alpha: 200,
     });
