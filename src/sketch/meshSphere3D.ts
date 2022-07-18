@@ -25,7 +25,7 @@ const meshSphere3D = (p: p5) => {
   };
 
   p.keyTyped = () => {
-    switchLoop(p, "Z", "meshSphere3D");
+    switchLoop(p, "x", "meshSphere3D");
   };
 
   function render() {
