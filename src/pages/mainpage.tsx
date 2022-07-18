@@ -3,12 +3,7 @@ import Canvas from "../components/canvas";
 import mouseCircle from "~/sketch/mouseCircle";
 import trochoid from "~/sketch/trochoid";
 import noiseGraph from "~/sketch/noiseGraph";
-import lineCircle from "~/sketch/lineCircle";
-import circleCycle from "~/sketch/circleCycle";
-import circleCycleV2 from "~/sketch/circleCycleV2";
 import barcode from "~/sketch/barcode";
-import meshSphere from "~/sketch/meshSphere";
-import meshSphere3D from "~/sketch/meshSphere3D";
 
 const App = () => {
   return (
