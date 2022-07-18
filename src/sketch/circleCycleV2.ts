@@ -18,16 +18,9 @@ const circleCycleV2 = (p: p5) => {
     p.background("#fff");
 
     // render
-    const rNs = {
-      a: Math.random(),
-      b: Math.random(),
-    };
-
-    console.log(rNs);
-
     range(0, 360, 1.5);
-    render(range(0, 360, 2), rNs.a, "#495C83");
-    render(range(1, 360, 2), rNs.b, "#3330E4");
+    render(range(0, 360, 2), Math.random(), "#495C83");
+    render(range(1, 360, 2), Math.random(), "#3330E4");
 
     // text
     p.strokeWeight(1);
