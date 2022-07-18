@@ -1,25 +1,20 @@
 import p5 from "p5";
 import range from "just-range";
+import { getCoordinate, keyRedraw, writeLine } from "~/util/p5util";
 
-const dimension = 1000;
-const alignment = dimension / 2;
+const DIMENSION = 1000;
+const ALIGN = DIMENSION / 2;
+const R = 600;
 
 const lineCircle = (p: p5) => {
   p.setup = () => {
-    p.createCanvas(dimension, dimension);
+    p.createCanvas(DIMENSION, DIMENSION);
     p.noLoop();
   };
 
   p.draw = () => {
     // reset the canvas
     p.background("#fff");
-
-    // text
-    p.noStroke();
-
-    p.fill("#1363DF");
-    p.textSize(24);
-    p.text("nanigashi: Line Circle ", 30, 40);
 
     p.strokeWeight(4);
     p.strokeCap(p.SQUARE);
@@ -35,31 +30,29 @@ const lineCircle = (p: p5) => {
       const rad = p.radians(deg);
       const noise = p.noise(C + deg / 128);
 
-      const R = 600;
-      const inner = {
-        x: (R / 3) * Math.cos(rad) + alignment,
-        y: (R / 3) * Math.sin(rad) + alignment,
-      };
+      const start = getCoordinate(rad, R / 3, ALIGN);
 
-      const outer = {
-        x: noise * R * Math.cos(rad) + alignment,
-        y: noise * R * Math.sin(rad) + alignment,
+      const _end = getCoordinate(rad, R);
+      const end = {
+        x: _end.x * noise + ALIGN,
+        y: _end.y * noise + ALIGN,
       };
 
       p.stroke(state ? "#1363DF" : "#47B5FF");
-      p.line(inner.x, inner.y, outer.x, outer.y);
+      writeLine(p, { start, end });
 
       state = !state;
     }
+
+    // text
+    p.noStroke();
+
+    p.fill("#1363DF");
+    p.textSize(24);
+    p.text("nanigashi: Line Circle ", 30, 40);
   };
 
-  p.keyTyped = () => {
-    if (p.keyCode === p.ENTER) {
-      console.debug("lineCircle: redraw()");
-
-      p.redraw();
-    }
-  };
+  p.keyTyped = () => keyRedraw(p, "z", "lineCircle");
 };
 
 export default lineCircle;

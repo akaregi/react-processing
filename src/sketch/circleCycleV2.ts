@@ -1,6 +1,7 @@
 import p5 from "p5";
 import dayjs from "dayjs";
 import range from "just-range";
+import { getCoordinate, keyRedraw, writeLine } from "~/util/p5util";
 
 const DIMENSION = 1000;
 const ALIGN = DIMENSION / 2;
@@ -33,15 +34,10 @@ const circleCycleV2 = (p: p5) => {
     p.text(`by nanigashi. Created at ${dayjs().format()}`, 30, 60);
   };
 
-  p.keyTyped = () => {
-    if (p.keyCode === p.ENTER) {
-      console.debug("circleCycleV2: redraw()");
-
-      p.redraw();
-    }
-  };
+  p.keyTyped = () => keyRedraw(p, "c", "circleCycleV2");
 
   function render(range: number[], rN: number, color: string) {
+    p.stroke(color);
     p.strokeWeight(2);
     p.strokeCap(p.SQUARE);
 
@@ -53,18 +49,15 @@ const circleCycleV2 = (p: p5) => {
 
       const noise = p.noise(nX, nY);
 
-      const inner = {
-        x: (R / 2) * Math.cos(rad) + ALIGN,
-        y: (R / 2) * Math.sin(rad) + ALIGN,
+      const start = getCoordinate(rad, R / 2, ALIGN);
+
+      const _end = getCoordinate(rad, R);
+      const end = {
+        x: _end.x * noise + ALIGN,
+        y: _end.y * noise + ALIGN,
       };
 
-      const outer = {
-        x: noise * R * Math.cos(rad) + ALIGN,
-        y: noise * R * Math.sin(rad) + ALIGN,
-      };
-
-      p.stroke(color);
-      p.line(inner.x, inner.y, outer.x, outer.y);
+      writeLine(p, { start, end });
     }
   }
 };

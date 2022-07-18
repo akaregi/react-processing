@@ -8,11 +8,19 @@ export type Coordinate = {
   z?: number;
 };
 
-export function getCoordinate(rad: number, R?: number): Coordinate {
+export function getCoordinate(
+  rad: number,
+  R?: number,
+  align?: number
+): Coordinate {
   return {
-    x: (R || 1) * Math.cos(rad),
-    y: (R || 1) * Math.sin(rad),
+    x: (R || 1) * Math.cos(rad) + (align || 0),
+    y: (R || 1) * Math.sin(rad) + (align || 0),
   };
+}
+
+export function coordinateOf(x: number, y: number, z?: number): Coordinate {
+  return { x, y, z };
 }
 
 // Line
@@ -50,5 +58,12 @@ export function switchLoop(p: p5, key: string, id?: string) {
       console.debug(`${id || "unknown"}: BEGIN loop`);
       p.loop();
     }
+  }
+}
+
+export function keyRedraw(p: p5, key: string, id?: string) {
+  if (p.key === key.toLowerCase()) {
+    console.debug(`${id || "unknown"}: redraw`);
+    p.redraw();
   }
 }

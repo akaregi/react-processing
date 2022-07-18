@@ -2,22 +2,37 @@ import p5 from "p5";
 import range from "just-range";
 import random from "just-random";
 import dayjs from "dayjs";
+import { getCoordinate, keyRedraw, writeLine } from "~/util/p5util";
 
-const dimension = 1000;
-const align = dimension / 2;
+const DIMENSION = 1000;
+const ALIGN = DIMENSION / 2;
 
 const circleCycle = (p: p5) => {
-  let color: { a: string; b: string } = {
-    // blue
-    a: "#1363DF",
-    b: "#47B5FF",
-  };
+  const colors = [
+    {
+      // blue
+      a: "#1363DF",
+      b: "#47B5FF",
+    },
+    {
+      // red
+      a: "#FF7BA9",
+      b: "#F94C66",
+    },
+    {
+      // green
+      a: "#65C18C",
+      b: "#C1F4C5",
+    },
+  ];
+
+  let color = random(colors)!;
 
   let innerRange = 100;
   let outerRange = 100;
 
   p.setup = () => {
-    p.createCanvas(dimension, dimension);
+    p.createCanvas(DIMENSION, DIMENSION);
     p.noLoop();
 
     p.strokeCap(p.SQUARE);
@@ -26,27 +41,6 @@ const circleCycle = (p: p5) => {
   p.draw = () => {
     // reset the canvas
     p.background("#fff");
-
-    // noise
-    p.noiseSeed(p.random(1, 100));
-
-    const colors = [
-      {
-        // blue
-        a: "#1363DF",
-        b: "#47B5FF",
-      },
-      {
-        // red
-        a: "#FF7BA9",
-        b: "#F94C66",
-      },
-      {
-        // green
-        a: "#65C18C",
-        b: "#C1F4C5",
-      },
-    ];
 
     color = random(colors)!;
 
@@ -72,13 +66,7 @@ const circleCycle = (p: p5) => {
     p.text(`by nanigashi. Created at ${dayjs().format()}`, 30, 80);
   };
 
-  p.keyTyped = () => {
-    if (p.keyCode === p.ENTER) {
-      console.debug("circleCycle: redraw()");
-
-      p.redraw();
-    }
-  };
+  p.keyTyped = () => keyRedraw(p, "x", "circleCycle");
 
   function render(p: p5, degrees: number[]): void {
     innerRange = random(range(100, 300, 50)) || 100;
@@ -90,20 +78,18 @@ const circleCycle = (p: p5) => {
       const rad = p.radians(deg);
 
       const noise = p.noise(
-        p.noise(Math.cos(randomN + rad), Math.sin(randomN + rad)) * 1
+        p.noise(Math.cos(randomN + rad), Math.sin(randomN + rad))
       );
 
-      const inner = {
-        x: innerRange * Math.cos(rad) + align,
-        y: innerRange * Math.sin(rad) + align,
+      const start = getCoordinate(rad, innerRange, ALIGN);
+
+      const _end = getCoordinate(rad, outerRange);
+      const end = {
+        x: _end.x * noise + ALIGN,
+        y: _end.y * noise + ALIGN,
       };
 
-      const outer = {
-        x: noise * outerRange * Math.cos(rad) + align,
-        y: noise * outerRange * Math.sin(rad) + align,
-      };
-
-      p.line(inner.x, inner.y, outer.x, outer.y);
+      writeLine(p, { start, end });
     }
   }
 };
