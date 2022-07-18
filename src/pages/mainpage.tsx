@@ -5,6 +5,7 @@ import noiseGraph from "~/sketch/noiseGraph";
 import lineCircle from "~/sketch/lineCircle";
 import circleCycle from "~/sketch/circleCycle";
 import barcode from "~/sketch/barcode";
+import { Link } from "react-router-dom";
 
 const App = () => {
   return (
@@ -75,7 +76,9 @@ const App = () => {
 
       <h2>LifeGame</h2>
       <p>
-        <a href="lifegame">まあまあ負荷がかかるので別ページに分離しています</a>
+        <Link to={"/lifegame"}>
+          まあまあ負荷がかかるので別ページに分離しています
+        </Link>
         。
       </p>
     </>

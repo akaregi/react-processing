@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Canvas from "~/components/canvas";
 import lifeGame from "~/sketch/lifeGame";
 
@@ -6,7 +7,7 @@ const LifeGame = () => {
     <>
       <h2>Conway's Game of Life</h2>
       <p>
-        <a href="/">戻る</a>
+        <Link to={"/"}>戻る</Link>
       </p>
       <p>
         皆様御存知、コンウェイのライフゲームです。組んでみたら素朴な実装すぎて負荷が大きいのでページを分ける羽目になっちゃった。
