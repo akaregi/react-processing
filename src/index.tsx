@@ -6,6 +6,7 @@ import App from "./pages/mainpage";
 import LifeGame from "./pages/lifegame";
 import Lorenz from "./pages/lorenz";
 import Spheres from "./pages/spheres";
+import Circles from "./pages/circles";
 
 const root = () => {
   return (
@@ -28,6 +29,7 @@ const root = () => {
           <Route path="lifegame" element={<LifeGame />} />
           <Route path="lorenz" element={<Lorenz />} />
           <Route path="spheres" element={<Spheres />} />
+          <Route path="circles" element={<Circles />} />
         </Routes>
       </BrowserRouter>
 
